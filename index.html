@@ -15,7 +15,7 @@
       </div>
       <div class="selectors">
           <div style="font-size: 14px; color: rgb(95,105,131)">Select Date Range</div>
-          <div style="font-size: 14px; color: rgb(95,105,131); float: right">Select an Event</div>
+          <div style="font-size: 14px; color: rgb(95,105,131)">Select an Event</div>
           <div id="dateSelect" style="float: left;"></div>
           <div id="eventSelect" style="float: right;"></div>
           <button id="run" value="Run">Run</button><br><br><br><br />
@@ -112,17 +112,17 @@
             var dauResults = dauOutput[eventName];
             var mauResults = mauOutput[eventName];
             var finalOutput = {};
-            finalOutput["Daily Active / Monthly Daily"] = {};
+            finalOutput["DAU/MAU"] = {};
             
             if (dauOutput) {
               _.each(_.keys(dauResults), function(date){
                 var dauValue = dauResults[date];
                 var mauValue = mauResults[date];
-                finalOutput["Daily Active / Monthly Daily"][date] = dauValue/mauValue;
+                finalOutput["DAU/MAU"][date] = dauValue/mauValue;
               });
             } else {
               _.each(_.keys(mauResults), function(date){
-                finalOutput["Daily Active / Monthly Daily"][date] = 0;
+                finalOutput["DAU/MAU"][date] = 0;
               });
             };
             // Log and graph results
