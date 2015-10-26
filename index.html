@@ -13,6 +13,7 @@
       <div class="titles">
         <h1 style="font-size: 18px; color: rgb(95,105,131)">Daily Active Users Over Time Period</h1>
         <p style="font-size: 14px; color: rgb(95,105,131)">Select Date Range</p>
+        <p id="eventSelect" style="float: left;">Select an Event</p>
         <div style="clear: both;"></div>
       </div>
       <div class="selectors">
@@ -26,6 +27,7 @@
       MP.api.ready(function() {
         var eventGraph  = $('#graph').MPChart({chartType: 'line'});
         var dateSelect  = $('#dateSelect').MPDatepicker();
+        var eventSelect = $('#eventSelect').MPEventSelect();
         
         // Convenience method for grabbing that datepicker value
         getDates = function() {
@@ -47,7 +49,7 @@
         
         var runQuery = function() {
           // Obtain parameters 
-          var eventName = 'app opened',
+          var eventName = eventSelect,
               dates = getDates(),
               dauOutput = {},
               mauOutput = {},
