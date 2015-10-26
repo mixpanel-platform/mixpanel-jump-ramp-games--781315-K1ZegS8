@@ -27,7 +27,7 @@
       MP.api.ready(function() {
         var eventGraph  = $('#graph').MPChart({chartType: 'line'});
         var dateSelect  = $('#dateSelect').MPDatepicker();
-        var eventSelect = $('#eventSelect').MPEventSelect('value');
+        var eventSelect = $('#eventSelect').MPEventSelect();
         
         // Convenience method for grabbing that datepicker value
         getDates = function() {
@@ -49,7 +49,7 @@
         
         var runQuery = function() {
           // Obtain parameters 
-          var eventName = eventSelect,
+          var eventName = eventSelect.MPEventSelect('value'),
               dates = getDates(),
               dauOutput = {},
               mauOutput = {},
